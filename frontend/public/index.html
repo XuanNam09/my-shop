@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikuu Store - Cửa hàng thời trang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #f97316 0%, #fb923c 100%); }
+        .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .product-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); }
+        .floating-animation { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .slide-in { animation: slideIn 0.8s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        .pulse-glow { animation: pulseGlow 2s infinite; }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); } 50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.8); } }
+        .nav-link { position: relative; overflow: hidden; }
+        .nav-link::before { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: #f97316; transition: left 0.3s ease; }
+        .nav-link:hover::before { left: 0; }
+        .cart-bounce { animation: cartBounce 0.6s ease; }
+        @keyframes cartBounce { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.1); } 50% { transform: scale(0.95); } 75% { transform: scale(1.05); } }
+        .hero-pattern { background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%); }
+        .category-card { transition: all 0.3s ease; background: linear-gradient(145deg, #f8fafc, #e2e8f0); }
+        .category-card:hover { background: #f97316; color: white; transform: scale(1.05); }
+        .price-tag { background: #f97316; color: white; padding: 8px 16px; border-radius: 25px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+        .btn-primary { background: #f97316; transition: all 0.3s ease; }
+        .btn-primary:hover { background: #ea580c; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4); }
+        .feature-icon { background: #f97316; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
