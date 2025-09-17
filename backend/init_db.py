@@ -26,8 +26,35 @@ def init_db():
             password TEXT NOT NULL
         )
     """)
+
+    # Tạo bảng orders (đơn hàng)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS orders (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            total_amount REAL NOT NULL,
+            shipping_address TEXT NOT NULL,
+            phone_number TEXT NOT NULL,
+            order_date TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'Pending',
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        )
+    """)
+
+    # Tạo bảng order_items (chi tiết sản phẩm trong đơn hàng)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS order_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            order_id INTEGER NOT NULL,
+            product_id INTEGER NOT NULL,
+            quantity INTEGER NOT NULL,
+            price REAL NOT NULL,
+            FOREIGN KEY (order_id) REFERENCES orders(id),
+            FOREIGN KEY (product_id) REFERENCES products(id)
+        )
+    """)
     
-    # Dữ liệu mẫu cho products
+    # Dữ liệu mẫu cho products (giữ nguyên hoặc cập nhật nếu muốn)
     products = [
         # Quần áo
         ("Áo vest nam", 150000, "clothing", "https://global2019-static-cdn.kikuu.com/k-s-oss-16470779199493TmQtEMTwM.jpg?x-oss-process=style/p_list", "Áo vest nam thời trang, phong cách lịch lãm", "Chất liệu vải cao cấp;Phù hợp công sở;Kích cỡ M,L,XL"),

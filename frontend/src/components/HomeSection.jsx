@@ -22,19 +22,21 @@ function HomeSection({ isVisible }) {
                                 Bộ sưu tập quần áo, giày, túi xách và phụ kiện thời thượng
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button onClick={() => document.getElementById('productsSection').scrollIntoView()} className="bg-white text-orange-500 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
+                                <button onClick={() => document.getElementById('productsSection')?.scrollIntoView({ behavior: 'smooth' })} className="bg-white text-orange-500 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
                                     <span className="text-orange-500">Mua sắm ngay</span>
                                 </button>
-                                <button onClick={() => document.getElementById('categoriesSection').scrollIntoView()} className="border-2 border-white text-orange-500 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-orange-500 transition-all">
+                                <button onClick={() => document.getElementById('categoriesSection')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white text-orange-500 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-orange-500 transition-all">
                                     <span className="text-orange-500">Khám phá thêm</span>
                                 </button>
                             </div>
                         </div>
                         <div className="relative">
                             <div className="floating-animation">
-                                <div className="w-96 h-96 bg-white/10 rounded-full flex items-center justify-center text-8xl backdrop-blur-sm border border-white/20">
-                                    
-                                </div>
+                                <img
+                                    src="https://global2019-static-cdn.kikuu.com/k-s-oss-16470779199493TmQtEMTwM.jpg?x-oss-process=style/p_list"
+                                    alt="Hero product"
+                                    className="w-96 h-96 rounded-full object-cover border border-white/20"
+                                />
                             </div>
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-400 rounded-full opacity-20 floating-animation" style={{ animationDelay: '-2s' }}></div>
                             <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-orange-300 rounded-full opacity-20 floating-animation" style={{ animationDelay: '-4s' }}></div>
